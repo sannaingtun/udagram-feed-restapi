@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-feed-restapi
+  labels:
+    app: udagram-feed-restapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: udagram-feed-restapi
+  template:
+    metadata:
+      labels:
+        app: udagram-feed-restapi
+    spec:
+      containers:
+        - name: udagram-feed-restapi
+          image: sannaingtun/udagram-feed-restapi
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 8080
+            initialDelaySeconds: 3
+            periodSeconds: 3
