@@ -43,7 +43,6 @@ venv/
 !.elasticbeanstalk/*.global.yml
 
 #config
-config/
 .env
 .vscode
 
